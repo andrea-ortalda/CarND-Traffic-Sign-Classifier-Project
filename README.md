@@ -238,16 +238,70 @@ The model gave satisfying results
 
 The model is behaving pretty well with , correctly predicting 4 images out of 5. This behavior is expected, since the images chosen are high quality images with a high contrast background. The image that is mistakenly predicted is the one containing also the web site source. I wanted to include this image to see if this could be a source of error and see how the model classify this image.
 
-Image 4         | Image 5    
+Image 4: incorrectly classified        | Image 5: correctly classified  
 :-------------------------:|:-------------------------:
 ![alt text][image8] |       ![alt text][image9]  
 
+### Analyze the softmax probabilities of the new images
 
+#### Web Image 1
+     1. ClassId 34
+          0.8979087
+     2. ClassId 35
+          0.030846028
+     3. ClassId 0
+           0.02769805
+     4. ClassId 38
+          0.018509153
+     5. ClassId 36
+          0.015642602
 
+#### Web Image 2
+     1. ClassId 14
+          0.7593338
+     2. ClassId 12
+          0.16966069
+     3. ClassId 15
+          0.041337665
+     4. ClassId 17
+          0.0129334405
+     5. ClassId 13
+          0.004326425
 
+#### Web Image 3
+     1. ClassId 25
+          0.6263664
+     2. ClassId 31
+          0.17781192
+     3. ClassId 21
+          0.07062496
+     4. ClassId 29
+          0.031042458
+     5. ClassId 20
+          0.02078485
 
+#### Web Image 4
+     1. ClassId 36
+          0.10938308
+     2. ClassId 40
+          0.1057055
+     3. ClassId 41
+          0.09667231
+     4. ClassId 42
+          0.0801657
+     5. ClassId 20
+          0.07947091
 
+#### Web Image 5
+     1. ClassId 13
+          0.99797124
+     2. ClassId 12
+          0.0007160093
+     3. ClassId 14
+          0.00044417407
+     4. ClassId 17
+          0.00019869221
+     5. ClassId 35
+          0.0001921434
 
-
-
-
+It is interesting to see that Web image 4 softmax proabilities are really close to each other and they really far from the correct prediction.
