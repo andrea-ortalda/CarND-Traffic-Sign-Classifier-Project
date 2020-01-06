@@ -26,7 +26,6 @@ The goals / steps of this project are the following:
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
 
 ### Load the data set
 
@@ -223,8 +222,25 @@ It is a LeNet architecture modified with dropout for convolutional and fully con
 ##### L2 regularization
 
 
+#### Hyper-Paramters
+* Learning rate = 1e-3
+* Learning rate decay = 1e-5*2
+* Adam Optimizer
+* Beta = 1e-2
+* Epochs = 32
+* Batch size = 128
 
+The model gave satisfying results
 
+![alt text][image7] 
+
+### Use the model to make predictions on new images
+
+The model is behaving pretty well with , correctly predicting 4 images out of 5. This behavior is expected, since the images chosen are high quality images with a high contrast background. The image that is mistakenly predicted is the one containing also the web site source. I wanted to include this image to see if this could be a source of error and see how the model classify this image.
+
+Image 4         | Image 5    
+:-------------------------:|:-------------------------:
+![alt text][image8] |       ![alt text][image9]  
 
 
 
