@@ -16,8 +16,8 @@
 [image10]: ./write_up_images/image10.png "Web images single accuracies"
 
 
-Overview
----
+### Overview
+
 In this project, knowledge  in deep neural networks and convolutional neural networks is used to classify traffic signs. A model is trained and alidated so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, it is tried out on images of German traffic signs that you find on the web.
 
 The goals / steps of this project are the following:
@@ -89,3 +89,46 @@ Test, training and validation dataset are plotted using histogram, showing how m
 Training dataset           | Test dataset              | Validation dataset
 :-------------------------:|:-------------------------:|:-------------------------:
 ![alt text][image1] |       ![alt text][image2] |      ![alt text][image3] 
+
+From the images visuazlization, it is possible to notice that there are some very bright ones (8418) and some dark ones (9911). Background presents the same problem, passing from a one with sky (16852) to a one with a dark backgraound (9911). Also zoom is different from image to image. All the images are quite blurry.
+
+![alt text][image4] 
+
+Imbalanced dataset can lead to completely ignoring the minority class in favor of the majority class. This is happening in current data set, so a data augmentation is needed.
+Up-sampling is the process of randomly duplicating observations from the minority class in order to reinforce its signal.
+Since the highest number of occurancy for a class is 2010, every class will be bringed to 2500 adding blurred or rotated images.
+
+#### a) Augment the dataset. This is done in 2 different ways:
+##### a) Image filtering 
+
+![alt text][image5] 
+
+##### b) Image rotation
+
+![alt text][image6] 
+
+Data flipping is not used because can change traffic sign meaning, leading to uncorrect labeling.
+Important is to classify new immages correctly.
+
+#### b) Data processing: all 3 data set should be normalized and randomized.
+In addition here, since brightness plays an important role, a contrast equalization is performed, together with the data noralization (0 mean and standard deviation equal to 1) and the data set randomization
+
+a) Normalization b) Contrast equalization c) Randomization
+
+### Design, train and test a model architecture
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
