@@ -120,105 +120,105 @@ In addition here, since brightness plays an important role, a contrast equalizat
 ### Design, train and test a model architecture
 
 #### Architecture
-It is a LeNet architecture modified with dropout for convolutional and fully connected layers.
+It is a LeNet architecture modified with dropout for convolutional and fully connected layers. At the end, the L2 regularization is applied in order to prevent overfitting.
 
 ##### Layer 1: Convolutional.
-    # Input = 32x32x1. Output = 32x32x8.
-    # in_height = 32
-    # in_width  = 32
-    # filter_height = 5
-    # filter_width  = 5
-    # filter_depth  = 8
-    # out_height = 32 
-    # out_width  = 32 
+     Input = 32x32x1. Output = 32x32x8.
+     in_height = 32
+     in_width  = 32
+     filter_height = 5
+     filter_width  = 5
+     filter_depth  = 8
+     out_height = 32 
+     out_width  = 32 
 
 ##### Activation. 
-    # ReLu.
+     ReLu.
 
 ##### Dropout.
-    # keep_p_convolutional = 0.9
+     keep_p_convolutional = 0.9
     
 ##### Layer 2: Convolutional.  
-    # Input = 32x32x8. Output = 30x30x16.
-    # in_height = 32
-    # in_width  = 32
-    # filter_height = 3
-    # filter_width  = 3
-    # filter_depth  = 16
-    # out_height = 30
-    # out_width  = 30 
+     Input = 32x32x8. Output = 30x30x16.
+     in_height = 32
+     in_width  = 32
+     filter_height = 3
+     filter_width  = 3
+     filter_depth  = 16
+     out_height = 30
+     out_width  = 30 
 
 ##### Activation. 
-    # ReLu.
+     ReLu.
 
 #### Pooling. 
-    # Input = 30x30x16.
-    # ((30-3+2*0)/2) + 1 = 14
-    # Output = 14x14x16.
+     Input = 30x30x16.
+     ((30-3+2*0)/2) + 1 = 14
+     Output = 14x14x16.
     
 ##### Dropout.
-    # keep_p_convolutional = 0.9
+     keep_p_convolutional = 0.9
 
 
 ##### Layer 3: Convolutional.  
-    # Input = 14x14x16. Output = 12x12x32.
-    # in_height = 14
-    # in_width  = 14
-    # filter_height = 3
-    # filter_width  = 3
-    # filter_depth  = 32
-    # out_height = 12
-    # out_width  = 12 
+     Input = 14x14x16. Output = 12x12x32.
+     in_height = 14
+     in_width  = 14
+     filter_height = 3
+     filter_width  = 3
+     filter_depth  = 32
+     out_height = 12
+     out_width  = 12 
 
 
 ##### Activation. 
-    # ReLu.
+     ReLu.
     
 #### Pooling. 
-    # Input = 12x12x32. 
-    # ((12-2+2*0)/2) + 1 = 6
-    # Output = 6x6x32.
+     Input = 12x12x32. 
+     ((12-2+2*0)/2) + 1 = 6
+     Output = 6x6x32.
 
 ##### Dropout.
-    # keep_p_convolutional = 0.9
+     keep_p_convolutional = 0.9
 
-##### Flatten. Flatten the output shape of the final pooling layer such that it's 1D instead of 3D. 6x6x32 = 1152
-
+##### Flatten. Flatten the output shape of the final pooling layer such that it's 1D instead of 3D. 
+     6x6x32 = 1152
 
 ##### Layer 4: Fully Connected.
-    # Input  = 1152. 
-    # Output = 512.
+     Input  = 1152. 
+     Output = 512.
 
 ##### Activation. 
-    # ReLu.
+     ReLu.
 
 ##### Dropout.
-    # keep_p_fully_connected = 0.6
+     keep_p_fully_connected = 0.6
 
 
 ##### Layer 5: Fully Connected. 
-    # Input  = 512. 
-    # Output = 256.
+     Input  = 512. 
+     Output = 256.
 
 ##### Activation. 
-    # ReLu.
+     ReLu.
     
 ##### Dropout.
-    # keep_p_fully_connected = 0.6
+     keep_p_fully_connected = 0.6
 
 ##### Layer 6: Fully Connected. 
-    # Input  = 256. 
-    # Output = 128.
+     Input  = 256. 
+     Output = 128.
 
 ##### Activation. 
-    # ReLu.
+     ReLu.
 
 ##### Dropout.
-    # keep_p_fully_connected = 0.6
+     keep_p_fully_connected = 0.6
 
 ##### Layer 7: Fully Connected (Logits). 
-    # Input  = 128. 
-    # Output = 43.  
+     Input  = 128. 
+     Output = 43.  
 
 ##### L2 regularization
 
