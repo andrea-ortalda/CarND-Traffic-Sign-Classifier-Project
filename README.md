@@ -113,9 +113,66 @@ Important is to classify new immages correctly.
 #### b) Data processing: all 3 data set should be normalized and randomized.
 In addition here, since brightness plays an important role, a contrast equalization is performed, together with the data noralization (0 mean and standard deviation equal to 1) and the data set randomization
 
-a) Normalization b) Contrast equalization c) Randomization
+### a) Normalization 
+### b) Contrast equalization 
+### c) Randomization
 
 ### Design, train and test a model architecture
+
+#### Architecture
+It is a LeNet architecture modified with dropout for convolutional and fully connected layers.
+
+##### Layer 1: Convolutional. The output shape should be 32x32x8.
+    # Convolutional. Input = 32x32x1. Output = 28x28x8.
+    # in_height = 32
+    # in_width  = 32
+    # filter_height = 5
+    # filter_width  = 5
+    # filter_depth  = 8
+    # out_height = 32 
+    # out_width  = 32 
+
+Activation. ReLu.
+
+Dropout.
+
+Layer 2: Convolutional. The output shape should be 30x30x16.
+
+Activation. ReLu.
+
+Pooling. The output shape should be 14x14x16.
+
+Dropout.
+
+Layer 3: Convolutional. The output shape should be 12x12x32.
+
+Activation. ReLu.
+
+Pooling. The output shape should be 6x6x32.
+
+Dropout.
+
+Flatten. Flatten the output shape of the final pooling layer such that it's 1D instead of 3D. 6x6x32 = 1152
+
+Layer 4: Fully Connected. This should have 512 outputs.
+
+Activation. ReLu
+
+Dropout.
+
+Layer 5: Fully Connected. This should have 256 outputs.
+
+Activation. ReLu
+
+Dropout.
+
+Layer 6: Fully Connected. This should have 128 outputs.
+
+Activation. ReLu
+
+Dropout.
+
+Layer 7: Fully Connected (Logits). This should have 43 outputs.
 
 
 
