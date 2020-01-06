@@ -40,7 +40,7 @@ Data set is composed of 43 different classes:
 
 ClassId	| SignName
 0	      | Speed limit (20km/h)
-:------:|:---------------------------------------------:
+--- | --- 
 1	      | Speed limit (30km/h)
 2	      | Speed limit (50km/h)
 3	      | Speed limit (60km/h)
